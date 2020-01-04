@@ -1,0 +1,29 @@
+type User {
+    id: Int,
+    name: String,
+    project: [Project]
+  },
+  type Project {
+    id: Int,
+    name: String,
+    documents: [Document]
+    contracts(id: Int): [Contract]
+    users: [User]
+  },
+  type Document {
+    id: Int,
+    name: String
+  },
+  type Contract {
+    id: Int,
+    name: String,
+    documents: [Document]
+  },
+
+  type Query {
+    hello: String,
+    users: [User],
+    project(id: Int): Project,
+    projects: [Project],
+    contracts(id: Int): [Contract]
+  }
